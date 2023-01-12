@@ -1,3 +1,4 @@
+# Importing libraries and functions.
 import contractions
 import numpy as np
 import pandas as pd
@@ -8,13 +9,12 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 
-# global variables defined here. You will need both of these during the
-# training phase and the prediction phase.
+# Defining global variables.
 tfidf_vectorizer = None
 model = None
 
 
-# methods to implement
+# Defining the "clean" function. Used to lowercase the entire contents of the document, expands contracted words, spell checks the words, 
 
 def clean(document):
     # TODO: implement your document preprocessing tasks:
