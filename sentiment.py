@@ -14,21 +14,14 @@ tfidf_vectorizer = None
 model = None
 
 
-# Defining the "clean" function. Used to lowercase the entire contents of the document, expands contracted words, spell checks the words, 
+# Defining the "clean" function.
+# Used to:
+# 1) Lowercase the contents of the document.
+# 2) Expand contracted words.
+# 3) Tokenize the document.
+# 4) Remove stop words and returns non-puncutation characters.
 
 def clean(document):
-    # TODO: implement your document preprocessing tasks:
-    #   -> Lowercase the document
-    #   -> Replace "hadn't" with "had not"
-    #   -> Replace "wasn't" with "was not"
-    #   -> Replace "didn't" with "did not"
-    #   -> Spell check
-    #   -> Remove stop words. You will need to tokenize the document and remove stop words
-    #   ->   at this step you should also remove punctuation.
-    #        Tip: use the same method as shown in class to remove stopwords, but you'll need
-    #             1 more condition. Not only should the token in the document not be in the
-    #             the stop words, but it should also be a non-punctuation character. (use isalnum())
-
     document['reviews'] = document['reviews'].str.lower()
     spell = Speller(lang='en')
     document_corrected = spell(document)
